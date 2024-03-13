@@ -5,10 +5,9 @@ import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
+import com.employee.database.employee_database.Exception.ResourceNotFoundException;
 import com.employee.database.employee_database.DTO.UserDto;
 import com.employee.database.employee_database.Entity.User;
-import com.employee.database.employee_database.Exception.ResourceNotFoundException;
 import com.employee.database.employee_database.Mapper.AutoMapper;
 import com.employee.database.employee_database.Repository.UserRepository;
 
