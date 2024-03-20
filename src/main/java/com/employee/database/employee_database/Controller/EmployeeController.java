@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.employee.database.employee_database.DTO.UserDto;
 import com.employee.database.employee_database.Service.UserService;
 
+import jakarta.validation.Valid;
+
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -27,7 +29,7 @@ public class EmployeeController {
     private UserService userService;
     
     @PostMapping("/create")
-    public ResponseEntity<UserDto> postMapping(@RequestBody UserDto user){
+    public ResponseEntity<UserDto> postMapping(@Valid @RequestBody UserDto user){
         UserDto savedUser = userService.createUser(user);
         return new ResponseEntity<>(savedUser, HttpStatus.CREATED);
     }
@@ -39,7 +41,7 @@ public class EmployeeController {
     }
 
     @PutMapping("/update/{id}")
-    public ResponseEntity<UserDto> putMapping(@PathVariable("id") Long ID, @RequestBody UserDto user) {
+    public ResponseEntity<UserDto> putMapping(@PathVariable("id") Long ID, @Valid @RequestBody UserDto user) {
         UserDto updateUser = userService.updateUser(user);
         return new ResponseEntity<>(updateUser, HttpStatus.CREATED);
     }
